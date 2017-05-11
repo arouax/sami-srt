@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="{% static "converter/style.css" %}" rel="stylesheet" type="text/css">
+	<title></title>
+</head>
+<body>
+	<div id="wrapper">
+	<main>
+	<div id="upload"><span>SAMI-to-SRT converter</span></div>
+	{% if form %}
+	<form action="" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<p><label for="id_file" id="filename1"><span id="txt">Select a file</span></label></p>
+		<input type="submit" value="Upload" id="submit-btn"/>
+	</form>
+	{% endif %}
+	{% if errors %}
+	{% for error in errors %}
+	<p class="error" id="tem-error"><span class="error">{{ error }}</span></p>
+	{% endfor %}
+	{% endif %}
+	<p id="ejs"><span id="span-ejs" class="error"></span></p>
+	</main>
+	</div>
+	<script src="{% static "converter/script.js" %}"></script>
+</body>
+</html>

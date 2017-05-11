@@ -1,0 +1,6 @@
+db.sqlite3
+*.pyc
+migrations/*
+nohup.out
+__pycache__/
+__init__.py
